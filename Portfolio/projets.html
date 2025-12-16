@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes projets - Portfolio Cyberpunk</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center, #0f0f0f, #000000 80%);
+      color: #00fff7;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* ===== INTRO ===== */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, #ff00ff33, transparent 60%),
+        radial-gradient(circle at 70% 80%, #00fff733, transparent 60%),
+        linear-gradient(180deg, #050008, #0a0013);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 9999;
+      animation: fadeOut 2s ease forwards;
+      animation-delay: 4s;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 0, 255, 0.15);
+      box-shadow: 0 0 20px #ff00ff;
+      animation: float 12s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.2); }
+    }
+
+    .centerpiece {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff00ff, #00fff7);
+      box-shadow: 0 0 80px #ff00ff, 0 0 150px #00fff7;
+      animation: pulse 6s infinite ease-in-out;
+      position: relative;
+    }
+
+    .centerpiece::before,
+    .centerpiece::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: spin 40s linear infinite;
+    }
+
+    .centerpiece::before {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,255,247,0.15), transparent 70%);
+    }
+
+    .centerpiece::after {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,0,255,0.1), transparent 80%);
+      animation: spinReverse 60s linear infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes spinReverse {
+      from { transform: translate(-50%, -50%) rotate(360deg); }
+      to { transform: translate(-50%, -50%) rotate(0deg); }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* ===== CONTENU ===== */
+
+    main {
+      opacity: 0;
+      transform: scale(0.98);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+    }
+
+    body.loaded main {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    header {
+      padding: 40px 20px;
+      background: linear-gradient(90deg, #ff00ff, #00fff7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px #ff00ff, 0 0 25px #00fff7;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 15px;
+      padding: 15px 30px;
+      color: #00fff7;
+      border: 2px solid #00fff7;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #00fff7, inset 0 0 25px #ff00ff;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+      border-color: #ff00ff;
+      transform: scale(1.08);
+    }
+
+    /* ===== PROJETS ===== */
+
+    .projects {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      padding: 25px;
+      border-radius: 16px;
+      border: 2px solid #00fff7;
+      box-shadow: 0 0 20px #00fff7;
+      background: rgba(0, 0, 0, 0.6);
+      transition: 0.3s;
+    }
+
+    .project-card:nth-child(even) {
+      border-color: #ff00ff;
+      box-shadow: 0 0 20px #ff00ff;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.05);
+    }
+
+    /* ===== BOUTON RETOUR ===== */
+
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #00fff7;
+      border: 2px solid #00fff7;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 12px #00fff7, inset 0 0 22px #ff00ff;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+      z-index: 10000;
+    }
+
+    body.loaded .back-btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: #111;
+      color: #ff00ff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BOUTON RETOUR -->
+  <a href="index.html" class="back-btn">← Retour</a>
+
+  <!-- INTRO -->
+  <div id="intro">
+    <div class="particle" style="width:30px;height:30px;top:20%;left:15%"></div>
+    <div class="particle" style="width:15px;height:15px;top:70%;left:80%"></div>
+    <div class="particle" style="width:25px;height:25px;top:50%;left:60%"></div>
+    <div class="particle" style="width:10px;height:10px;top:30%;left:75%"></div>
+    <div class="centerpiece"></div>
+  </div>
+
+  <!-- CONTENU -->
+  <main>
+    <header>
+      <h1>💻 Mes projets</h1>
+    </header>
+
+    <nav>
+      <nav>
+  <a href="index.html">🏠 Accueil</a>
+  <a href="projets.html">💻 Projets</a>
+  <a href="about.html">👤 À propos</a>
+  <a href="developpement-pro.html">🚀 Développement professionnel</a>
+  <a href="contact.html">📧 Contact</a>
+</nav>
+
+    </nav>
+
+    <section class="projects">
+      <div class="project-card">
+        <h3>💾 Serveur Web</h3>
+        <p>Load balancer avec Nginx & Apache2.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>📡 API</h3>
+        <p>Création d’un Flight Radar.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>🌐 Site vitrine</h3>
+        <p>Site de vente de fromage (fictif).</p>
+      </div>
+
+      <div class="project-card">
+        <h3>🧠 Windows Server 2022</h3>
+        <p>Automatisation et gestion des mises à jour.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 - Portfolio Cyberpunk</p>
+    </footer>
+  </main>
+
+  <script>
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+    }, 3000);
+  </script>
+
+</body>
+</html>
