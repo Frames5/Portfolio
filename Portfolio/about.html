@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>À propos de moi — Cyberpunk Style</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+    body{
+      margin:0; 
+      font-family:'Orbitron', sans-serif; 
+      color:#fff;
+      min-height:100vh;
+      position:relative;
+      overflow-x:hidden;
+      background:url('TON_IMAGE_ICI.jpg') no-repeat center center/cover; /* Remplace par ta vidéo si tu veux */ 
+    }
+
+    .overlay{
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      background:rgba(10,0,20,0.65);
+      z-index:-1;
+    }
+
+    .btn{
+      padding:10px 18px;
+      border-radius:8px;
+      border:2px solid #ff00cc;
+      cursor:pointer;
+      font-weight:700;
+      color:#fff;
+      background:transparent;
+      text-transform:uppercase;
+      transition:0.3s ease;
+      text-shadow:0 0 6px #ff00cc;
+    }
+
+    .btn:hover{
+      background:#ff00cc;
+      color:#0a0a1a;
+      box-shadow:0 0 18px #ff00cc,0 0 30px #00ffff;
+    }
+
+    .back-btn{
+      position:fixed;
+      top:20px;
+      left:20px;
+      z-index:10;
+    }
+
+    section{
+      position:relative;
+      z-index:1;
+      max-width:800px;
+      margin:0 auto;
+      padding:80px 20px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      gap:40px; /* espace entre les panels */
+    }
+
+    .panel{
+      background:rgba(15,15,25,0.55);
+      border-radius:16px;
+      box-shadow:0 0 25px rgba(255,0,200,0.6), 0 0 45px rgba(0,200,255,0.3);
+      backdrop-filter:blur(6px);
+      padding:40px;
+    }
+
+    .panel h2{
+      font-size:34px;
+      margin-bottom:20px;
+      color:#ff00cc;
+      text-shadow:0 0 12px #ff00cc, 0 0 24px #00ffff;
+    }
+
+    .panel p{
+      font-size:18px;
+      line-height:1.6;
+      color:#e0e0ff;
+      text-shadow:0 0 8px rgba(0,255,255,0.5);
+    }
+
+    /* Centrage spécifique pour le panel "Ce que je recherche" */
+    .centered-title {
+      text-align: center;
+      color: #ff00cc;
+      text-shadow: 0 0 12px #ff00cc, 0 0 24px #00ffff;
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .panel p.centered-text {
+      text-align: center;
+    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+}
+
+nav a {
+  display: inline-block;
+  padding: 12px 26px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px #00ffff, 0 0 25px #ff00cc inset;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+nav a:hover {
+  color: #ff00cc;
+  border-color: #ff00cc;
+  box-shadow: 0 0 20px #ff00cc, 0 0 40px #00ffff inset;
+  transform: scale(1.08);
+}
+/* === Transition légère à l'arrivée === */
+body {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body.page-loaded {
+  opacity: 1;
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+<nav>
+  <nav>
+  <a href="index.html">🏠 Accueil</a>
+  <a href="projets.html">💻 Projets</a>
+  <a href="about.html">👤 À propos</a>
+  <a href="developpement-pro.html">🚀 Développement professionnel</a>
+  <a href="contact.html">📧 Contact</a>
+</nav>
+
+</nav>
+
+
+  <!-- Bouton retour -->
+ <a href="index.html" class="btn back-btn">← Retour</a>
+
+
+  <!-- Section À propos -->
+  <section>
+    <div class="panel">
+      <h2>À propos de moi</h2>
+      <p>
+         
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Qui suis-je  ?</h2>
+      <p>
+        Etudiant en bts sio en 2 ème année en spécialisation systèmes et réseaux.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Mon parcours</h2>
+      <p>
+        Bac général 2023 - 2024 Lycée Jacques Prévert
+        
+        <br>BTS SIO 2024-2026 Lycée Le Rebours
+        <br>Stage chez Alcatel Submarine Network 2024-2025
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Compétences</h2>
+      <p>
+        <br>Administration systèmes & services :  Linux (Debian, Ubuntu)
+
+Windows Server (2012)
+
+Active Directory
+
+GPO
+
+Gestion des utilisateurs (support utilisateur)
+
+<br> Services réseau : DHCP, DNS
+
+PKI
+
+PowerShell
+
+         <br>Réseaux & Infrastructures : Routage statique
+
+Routage dynamique
+
+Switch
+
+Proxy
+
+Cisco Packet Tracer
+
+
+          <br>Virtualisation & Cloud : Virtualisation (VMware)
+
+Proxmox
+
+Conteneurisation (Docker)
+
+
+       <br> Automatisation & Scripting : PowerShell
+
+Python
+
+Automatisation (Cron, scripts)
+
+        <br>Développement Web : HTML
+
+CSS
+
+JavaScript
+
+Serveurs Web (Apache2, Nginx)
+
+
+         <br> Bases de données : SQL
+
+SGBD : MySQL, MariaDB
+
+          <br> Programmation : Python
+
+C++
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2 class="centered-title">Ce que je recherche</h2>
+      <p class="centered-text">
+        Une alternance dans laquelle je pourrais poursuivre mon parcours en licence d'informatique.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Mon inspiration</h2>
+      <p>
+        Je suis spécialisé en systèmes et réseaux mais je suis passioné et ouvert aux utilisations des nouvelles technologies.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Passions</h2>
+      <p>
+       Apprendre de nouvelles choses , sports , lecture , jeux vidéo
+      </p>
+    </div>
+
+  </section>
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("page-loaded");
+  });
+</script>
+
+</body>
+</html>
